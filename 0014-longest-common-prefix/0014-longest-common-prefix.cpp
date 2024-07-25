@@ -10,7 +10,7 @@ public:
         for(int i=0;i<s.size();i++){
             if(s[i]!=l[i]){
                 return ans;}
-            ans+=l[i];
+            ans+=s[i];
         }
         return ans;
     }
