@@ -10,19 +10,25 @@
  */
 class Solution {
 public:
-    ListNode* removeElements(ListNode* head, int val) {
-          ListNode* del = new ListNode;
-        del -> next = head;
-        ListNode* curr = del;
-        
-        while(curr -> next) {
-            if(curr -> next -> val == val) {
-                curr -> next = curr -> next -> next;
-            } else {
-                curr = curr -> next;
-            }
+    ListNode* removeElements(ListNode* head, int k) {
+        while(head!=nullptr && head->val==k){
+            head = head->next;
         }
+        ListNode* prev=NULL;
+        ListNode* curr=head;
         
-        return del -> next;
+        while(curr!=NULL){
+           if(curr->val==k){
+        prev->next=curr->next;
+            curr=curr->next;
+           }
+            
+            else{
+                prev=curr;
+                curr=curr->next;
+            }
+            
+        }
+        return head;
     }
 };
